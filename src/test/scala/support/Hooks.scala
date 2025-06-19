@@ -17,9 +17,9 @@ class Hooks extends ScalaDsl with EN {
   }
 
   After {
-    takeScreenshot(DriverManager.driver, prefix = "CucumberTest")
+//    takeScreenshot(DriverManager.driver, prefix = "CucumberTest")
     println("Closing browser after scenario...")
     DriverManager.driver.quit()
-//    DriverManager.driver = null
+    DriverManager.driver = null
   }
 }

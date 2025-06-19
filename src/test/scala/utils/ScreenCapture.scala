@@ -11,7 +11,7 @@ object ScreenCapture {
 // THIS IS EMPTY
 def takeScreenshot(
                     driver: WebDriver,
-                    basePath: String = "/Users/andrew.boyce/Documents/Screenshots",
+                    basePath: String = "/Users/andrew.boyce/Documents/Screenshots/Cucumber",
                     prefix: String = ""
                   ): Unit = {
   // Set up params with default options

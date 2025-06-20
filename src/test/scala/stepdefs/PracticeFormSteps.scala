@@ -1,7 +1,7 @@
 package stepdefs
 
 import io.cucumber.scala.{EN, ScalaDsl}
-import pages.LoginPage.{browserLaunch, clickOn, inputText}
+import pages.LoginPage.{browserLaunch, clickOn, counter, inputText}
 import locators.PracticeFormLocators._
 import org.openqa.selenium.By
 import utils.ScreenCapture.takeScreenshot
@@ -9,29 +9,33 @@ import support.DriverManager
 
 
 class PracticeFormSteps extends ScalaDsl with EN {
-
+//  var firstNamePrefix: String = ""
+  counter += 1
+  val scenario: String = s"Scenario_$counter"
 
   Given("""the user is on the practice form page""") { () =>
     // TODO: Navigate to the practice form page
     browserLaunch()
-    takeScreenshot(DriverManager.driver, prefix = "BrowserLaunched")
+
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_BrowserLaunched")
   }
   And("""cookies are accepted""") { () =>
     // TODO: Navigate to the practice form page
     clickOn(cookiesAcceptLocator)
-    takeScreenshot(DriverManager.driver, prefix = "CookiesAccepted")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_CookiesAccepted")
   }
 
   When("""the user enters valid first name {string}""") { (firstName: String) =>
     // TODO: Enter first name
+//    firstNamePrefix = firstName
     inputText(firstNameLocator, firstName)
-    takeScreenshot(DriverManager.driver, prefix = "FirstNameInputted")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_FirstNameInputted")
   }
 
   And("""the user enters valid last name {string}""") { (lastName: String) =>
     // TODO: Enter last name
     inputText(lastNameLocator, lastName)
-    takeScreenshot(DriverManager.driver, prefix = "LastNameInputted")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_LastNameInputted")
   }
 
   And("""the user clicks on gender {string} button""") { (gender: String) =>
@@ -41,7 +45,7 @@ class PracticeFormSteps extends ScalaDsl with EN {
       case "Female" => genderFemaleLocator
     }
     clickOn(genderLocator)
-    takeScreenshot(DriverManager.driver, prefix = "GenderClicked")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_GenderClicked")
   }
 
   And("""the user clicks on yrs of exp {string} button""") { (yrsOfExp: String) =>
@@ -56,13 +60,13 @@ class PracticeFormSteps extends ScalaDsl with EN {
       case "7" => experience7Locator
     }
     clickOn(yearsLocator)
-    takeScreenshot(DriverManager.driver, prefix = "YrsOfExpClicked")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_YrsOfExpClicked")
   }
 
   And("""the user enters valid date {string}""") { (date: String) =>
     // TODO: Enter date
     inputText(dateLocator, date)
-    takeScreenshot(DriverManager.driver, prefix = "DateInputted")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_DateInputted")
   }
 
   And("""the user clicks on profession {string}""") { (professions: String) =>
@@ -77,7 +81,7 @@ class PracticeFormSteps extends ScalaDsl with EN {
       //      case unknown =>
       //        throw new IllegalArgumentException(s"Unknown profession: $unknown")
     }
-    takeScreenshot(DriverManager.driver, prefix = "ProfessionsClicked")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_ProfessionsClicked")
   }
 
   And("""the user clicks on continent {string} in continents dropdown""") { (continent: String) =>
@@ -93,19 +97,19 @@ class PracticeFormSteps extends ScalaDsl with EN {
       case "Antartica" => antarticaLocator
     }
     clickOn(continentLocator)
-    takeScreenshot(DriverManager.driver, prefix = "ContinentClicked")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_ContinentClicked")
   }
 
   And("""the user clicks on upload image and uploads {string}""") { (file: String) =>
     // TODO: Upload file
     inputText(uploadImageLocator, file)
-    takeScreenshot(DriverManager.driver, prefix = "ImageUploaded")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_ImageUploaded")
   }
 
   And("""the user clicks on submit button""") { () =>
     // TODO: Click submit button
     clickOn(submitLocator)
-    takeScreenshot(DriverManager.driver, prefix = "SubmitButtonClicked")
+    takeScreenshot(DriverManager.driver, prefix = s"${scenario}_SubmitButtonClicked")
   }
 
   Then("""the practice form should be submitted successfully""") { () =>

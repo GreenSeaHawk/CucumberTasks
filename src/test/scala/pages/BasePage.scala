@@ -1,11 +1,15 @@
 package pages
 
-import org.openqa.selenium.{By, JavascriptExecutor, WebDriver, WebElement}
+import org.openqa.selenium.{By, JavascriptExecutor, WebDriver}
 import support.DriverManager
 import utils.ConfigReader
 
 trait BasePage {
   def driver: WebDriver = DriverManager.driver
+
+  def js: JavascriptExecutor = driver.asInstanceOf[JavascriptExecutor]
+
+  var counter: Int = 0
 
   def browserLaunch(): Unit = {
     val testUrl = ConfigReader.get("base.url")
@@ -24,7 +28,6 @@ trait BasePage {
   // Common Actions
 
   def inputText(selector: By, text: String): Unit = {
-    val js = driver.asInstanceOf[JavascriptExecutor]
     val element = driver.findElement(selector)
     js.executeScript("arguments[0].scrollIntoView();", element)
     element.sendKeys(text)
@@ -32,7 +35,6 @@ trait BasePage {
   }
 
   def clickOn(selector: By): Unit = {
-    val js = driver.asInstanceOf[JavascriptExecutor]
     val element = driver.findElement(selector)
     js.executeScript("arguments[0].scrollIntoView();", element)
     element.click()

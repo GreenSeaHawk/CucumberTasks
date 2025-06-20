@@ -4,10 +4,10 @@ import org.openqa.selenium.By
 
 object PracticeFormLocators {
 
-//  // Login Page
-//  val Username: By = By.name("username")
-//  val Password: By = By.name("password")
-//  val Submit:   By = By.cssSelector("input[type='submit']")
+  //  // Login Page
+  //  val Username: By = By.name("username")
+  //  val Password: By = By.name("password")
+  //  val Submit:   By = By.cssSelector("input[type='submit']")
 
   // Practice Form Page
   val firstNameLocator: By = By.name("firstname")
@@ -24,9 +24,9 @@ object PracticeFormLocators {
   val dateLocator: By = By.id("datepicker")
   val professionManualLocator: By = By.id("profession-0")
   val professionAutomationLocator: By = By.id("profession-1")
-//  val autoToolsUFTLocator: By = By.id("tool-0")
-//  val autoToolsProtractorLocator: By = By.id("tool-1")
-//  val autoToolsSeleniumLocator: By = By.id("tool-2")
+  //  val autoToolsUFTLocator: By = By.id("tool-0")
+  //  val autoToolsProtractorLocator: By = By.id("tool-1")
+  //  val autoToolsSeleniumLocator: By = By.id("tool-2")
   val continentsLocator: By = By.id("continents")
   val asiaLocator: By = By.cssSelector("#continents > option:nth-child(1)")
   val europeLocator: By = By.cssSelector("#continents > option:nth-child(2)")

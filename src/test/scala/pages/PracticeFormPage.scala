@@ -4,10 +4,10 @@ import pages.LoginPage.inputText
 
 object PracticeFormPage {
 
-//  // First Name
-//  def inputFirstName(text: String) = {
-//    inputText(FirstName, text)
-//  }
-//
+  //  // First Name
+  //  def inputFirstName(text: String) = {
+  //    inputText(FirstName, text)
+  //  }
+  //
 
 }

@@ -1,17 +1,14 @@
 package stepdefs
 
 import io.cucumber.scala.{EN, ScalaDsl}
-import pages.AccountsOverviewPage.verifyHeader
-import pages.LoginPage.{browserLaunch, buttonSubmit, clickOn, inputPassword, inputText, inputUserName}
-import pages.PracticeFormPage._
+import pages.LoginPage.{browserLaunch, clickOn, inputText}
 import locators.PracticeFormLocators._
 import org.openqa.selenium.By
 import utils.ScreenCapture.takeScreenshot
 import support.DriverManager
 
 
-
-class PracticeFormSteps extends ScalaDsl with EN  {
+class PracticeFormSteps extends ScalaDsl with EN {
 
 
   Given("""the user is on the practice form page""") { () =>
@@ -77,8 +74,8 @@ class PracticeFormSteps extends ScalaDsl with EN  {
         clickOn(professionManualLocator)
       case "Automation" =>
         clickOn(professionAutomationLocator)
-//      case unknown =>
-//        throw new IllegalArgumentException(s"Unknown profession: $unknown")
+      //      case unknown =>
+      //        throw new IllegalArgumentException(s"Unknown profession: $unknown")
     }
     takeScreenshot(DriverManager.driver, prefix = "ProfessionsClicked")
   }
@@ -94,7 +91,7 @@ class PracticeFormSteps extends ScalaDsl with EN  {
       case "South America" => southAmericaLocator
       case "North America" => northAmericaLocator
       case "Antartica" => antarticaLocator
-  }
+    }
     clickOn(continentLocator)
     takeScreenshot(DriverManager.driver, prefix = "ContinentClicked")
   }
